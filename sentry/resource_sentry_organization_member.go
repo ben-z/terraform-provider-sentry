@@ -106,6 +106,7 @@ func resourceSentryOrganizationMemberRead(ctx context.Context, d *schema.Resourc
 			"org":      org,
 			"memberID": memberID,
 		})
+		d.SetId("")
 		return diag.FromErr(err)
 	}
 
