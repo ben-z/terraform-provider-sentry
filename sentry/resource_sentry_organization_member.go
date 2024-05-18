@@ -2,6 +2,7 @@ package sentry
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/hashicorp/go-multierror"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
@@ -105,7 +106,7 @@ func resourceSentryOrganizationMemberRead(ctx context.Context, d *schema.Resourc
 		tflog.Info(ctx, "123 Removed organization membership from state because it no longer exists in Sentry", map[string]interface{}{
 			"org":      org,
 			"memberID": memberID,
-			"error":   err,
+			"error":   fmt.Errorf("unable to read organization member, got error: %s", err),
 		})
 		d.SetId("")
 		return nil
