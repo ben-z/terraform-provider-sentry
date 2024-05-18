@@ -102,7 +102,7 @@ func resourceSentryOrganizationMemberRead(ctx context.Context, d *schema.Resourc
 	})
 	member, resp, err := client.OrganizationMembers.Get(ctx, org, memberID)
 	if found, err := checkClientGet(resp, err, d); !found {
-		tflog.Info(ctx, "Removed organization membership from state because it no longer exists in Sentry", map[string]interface{}{
+		tflog.Info(ctx, "123 Removed organization membership from state because it no longer exists in Sentry", map[string]interface{}{
 			"org":      org,
 			"memberID": memberID,
 			"error":   err,
